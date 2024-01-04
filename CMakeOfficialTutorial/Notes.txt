@@ -1,0 +1,35 @@
+-----------------------------------------------------------------------------
+mylib/
+    mylib.cpp
+    mylib.h
+main.cpp
+-----------------------------------------------------------------------------
+${CMAKE_CURRENT_SOURCE_DIR} = ./mylib
+"${PROJECT_BINARY_DIR}" = ./build
+-----------------------------------------------------------------------------
+target_include_directories(mylib INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})\
+if(exe links against mylib)
+{
+    exe includes ./mylib //includes mylib.h
+    mylib itself does not include ./mylib //it already includes because mylib.h is in the same dir as mylib.cpp
+    INTERFACE = things that consumers require but the producent doesn't
+}
+-----------------------------------------------------------------------------
+target_include_directories(mylib PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+if(exe links against mylib)
+{
+    exe does not include
+    mylib includes
+}
+
+-----------------------------------------------------------------------------
+target_include_directories(mylib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+if(exe links against mylib)
+{
+    exe includes
+    mylib includes
+}
+-----------------------------------------------------------------------------
+INTERFACE specifies that options should be applied to targets that link against exe rather than to exe itself
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------

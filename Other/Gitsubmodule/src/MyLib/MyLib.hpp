@@ -1,0 +1,5 @@
+
+namespace MyLib
+{
+    void print();
+}

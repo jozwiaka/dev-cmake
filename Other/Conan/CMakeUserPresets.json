@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/mnt/c/dev/cmake_learning/Other/Conan/build/CMakePresets.json"
+    ]
+}

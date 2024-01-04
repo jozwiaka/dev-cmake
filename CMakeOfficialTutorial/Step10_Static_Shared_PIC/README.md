@@ -1,0 +1,1 @@
+BUILD_SHARED_LIBS variable
